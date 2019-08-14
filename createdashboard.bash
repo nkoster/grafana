@@ -8,7 +8,6 @@ count=0
 
 for host in `cat devhosts.txt | sed '$ d'`
 do
-    echo $count
     cat panel.txt | \
     sed "s/\$node/$host/g;s/\$id/$count/" >>$dash
     echo ',' >>$dash
