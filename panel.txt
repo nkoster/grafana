@@ -4,7 +4,7 @@
         "max (sum by (cpu) (irate(node_cpu_seconds_total{instance=\"$instance:9100\",mode=\"user\"}[5m])) * 100)": "dark-green",
         "max (sum by (cpu,instance) (irate(node_cpu_seconds_total{instance=\"$instance:9100\",mode=\"user\"}[5m])) * 100)": "dark-green",
         "system": "semi-dark-blue",
-        "system (stacked)": "semi-dark-orange",
+        "system": "semi-dark-orange",
         "user": "semi-dark-green"
       },
       "bars": false,
@@ -60,7 +60,7 @@
           "stack": true
         },
         {
-          "alias": "system (stacked)",
+          "alias": "system",
           "linewidth": 0,
           "stack": true
         }
@@ -92,7 +92,7 @@
           "hide": false,
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "system (stacked)",
+          "legendFormat": "system",
           "refId": "B"
         }
       ],
