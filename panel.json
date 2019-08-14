@@ -1,0 +1,142 @@
+    {
+      "aliasColors": {
+        "iowait": "semi-dark-red",
+        "max (sum by (cpu) (irate(node_cpu_seconds_total{instance=\"$instance:9100\",mode=\"user\"}[5m])) * 100)": "dark-green",
+        "max (sum by (cpu,instance) (irate(node_cpu_seconds_total{instance=\"$instance:9100\",mode=\"user\"}[5m])) * 100)": "dark-green",
+        "system": "semi-dark-blue",
+        "system (stacked)": "semi-dark-orange",
+        "user": "semi-dark-green"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prom",
+      "description": "",
+      "fill": 5,
+      "gridPos": {
+        "h": 13,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": $id,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "paceLength": 10,
+      "percentage": true,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeat": "node",
+      "repeatDirection": "h",
+      "scopedVars": {
+        "node": {
+          "selected": false,
+          "text": "",
+          "value": ""
+        }
+      },
+      "seriesOverrides": [
+        {
+          "alias": "iowait",
+          "transform": "negative-Y",
+          "yaxis": 2
+        },
+        {
+          "alias": "user",
+          "stack": true
+        },
+        {
+          "alias": "system (stacked)",
+          "linewidth": 0,
+          "stack": true
+        }
+      ],
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "max (avg by (cpu) (irate(node_cpu_seconds_total{instance=\"$node:9100\",mode=\"iowait\"}[5m])) * 100)",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "iowait",
+          "refId": "A"
+        },
+        {
+          "expr": "max (avg by (cpu) (irate(node_cpu_seconds_total{instance=\"$node:9100\",mode=\"user\"}[5m])) * 100)",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "user",
+          "refId": "C"
+        },
+        {
+          "expr": "max (avg by (cpu) (irate(node_cpu_seconds_total{instance=\"$node:9100\",mode=\"system\"}[5m])) * 100)",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "system (stacked)",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "$node",
+      "tooltip": {
+        "shared": false,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": "100",
+          "min": "0",
+          "show": true
+        },
+        {
+          "decimals": null,
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": "0",
+          "min": "-100",
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    }
