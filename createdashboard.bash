@@ -9,14 +9,14 @@ count=0
 for host in `cat devhosts.txt | sed '$ d'`
 do
     echo $count
-    cat panel.text | \
+    cat panel.txt | \
     sed "s/\$node/$host/g;s/\$id/$count/" >>$dash
     echo ',' >>$dash
     ((count++))
 done
 
 host=`cat devhosts.txt | tail -1`
-cat panel.json | \
+cat panel.txt | \
 sed "s/\$node/$host/g;s/\$id/$count/" >>$dash
 
 cat footer.txt >>$dash
