@@ -69,7 +69,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "max (avg by (cpu) (irate(node_cpu_seconds_total{instance=\"$node:9100\",mode=\"iowait\"}[5m])) * 100)",
+          "expr": "max (irate(node_cpu_seconds_total{instance=\"$node:9100\",mode=\"iowait\"}[5m])) * 100",
           "format": "time_series",
           "hide": false,
           "instant": false,
@@ -79,7 +79,7 @@
           "refId": "A"
         },
         {
-          "expr": "max (avg by (cpu) (irate(node_cpu_seconds_total{instance=\"$node:9100\",mode=\"user\"}[5m])) * 100)",
+          "expr": "max (irate(node_cpu_seconds_total{instance=\"$node:9100\",mode=\"user\"}[5m])) * 100",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -87,7 +87,7 @@
           "refId": "C"
         },
         {
-          "expr": "max (avg by (cpu) (irate(node_cpu_seconds_total{instance=\"$node:9100\",mode=\"system\"}[5m])) * 100)",
+          "expr": "max (irate(node_cpu_seconds_total{instance=\"$node:9100\",mode=\"system\"}[5m])) * 100",
           "format": "time_series",
           "hide": false,
           "interval": "",
